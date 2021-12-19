@@ -39,8 +39,9 @@ public class DirectorServiceImplementation implements FilmService{
 	}
 	@Override
 	public List<Movie> getMovie(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		int id_name = directorRepository.getId_Director(name);
+		
+		return movieRepository.findMovieByDirectorId(id_name);
 	}
 
 }

@@ -1,5 +1,6 @@
 package com.example.filmSearch.h2_setup.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +21,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name="director")
-public class Director {
+public class Director implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,9 +33,7 @@ public class Director {
 	@OneToMany(
 			mappedBy="director",
 			cascade=CascadeType.ALL,
-			orphanRemoval=true
-			
-			
+			orphanRemoval=true			
 			)
 	private List<Movie> movies = new ArrayList<>();
 	

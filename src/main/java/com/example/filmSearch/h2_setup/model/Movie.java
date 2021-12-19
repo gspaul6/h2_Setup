@@ -1,5 +1,6 @@
 package com.example.filmSearch.h2_setup.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +24,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name="movie")
-public class Movie {
+public class Movie implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,9 +44,7 @@ public class Movie {
 	private List<Actor> actors =new ArrayList<>();
 	
 
-	public List<Actor> getActors() {
-		return actors;
-	}
+
 
 
 

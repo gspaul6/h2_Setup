@@ -1,5 +1,6 @@
 package com.example.filmSearch.h2_setup.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +21,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name="actor")
-public class Actor {
+public class Actor implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -35,10 +36,6 @@ public class Actor {
 			inverseJoinColumns = @JoinColumn(name="movie_id")
 			)
 	private List<Movie>movies = new ArrayList<>();	
-
-	public List<Movie> getMovies() {
-		return movies;
-	}
 
 	public void setMovies(Movie movies) {
 		this.movies.add(movies);
