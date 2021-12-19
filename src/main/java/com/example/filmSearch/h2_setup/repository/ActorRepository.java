@@ -11,6 +11,8 @@ import com.example.filmSearch.h2_setup.model.Actor;
 public interface ActorRepository extends CrudRepository<Actor,Integer> {
 	
 	@Query("Select a.id from Actor a where a.name=:name")
-    void getId_Actor(@Param("name") String name);
+    int getId_Actor(@Param("name") String name);
+	
+	
 
 }
