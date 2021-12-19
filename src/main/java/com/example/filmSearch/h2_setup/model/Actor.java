@@ -17,7 +17,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
-
+/**
+ *  @author Gurpratap Singh Paul
+ * This is the Entity class Actor which maps Actor Table
+ * Here we have used Many to Many Mapping Between Actor and Movie Table
+ */
 @Entity
 @Data
 @Table(name="actor")
@@ -28,7 +32,7 @@ public class Actor implements Serializable {
 
 	@Column(name="name")
 	private String name;
-	
+
 	@ManyToMany
 	@JoinTable(
 			name="actor_movie",
@@ -46,10 +50,10 @@ public class Actor implements Serializable {
 	}
 
 	public Actor() {
-		
-		
+
+
 	}
-	
+
 	public int getId() {
 		return id;
 	}

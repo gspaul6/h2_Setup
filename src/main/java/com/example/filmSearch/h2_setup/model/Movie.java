@@ -20,7 +20,12 @@ import javax.persistence.Table;
 
 
 import lombok.Data;
-
+/**
+ *  @author Gurpratap Singh Paul
+ * This is the Entity class Movie which maps Movie Table
+ * Here we have used Many to Many Mapping Between Actor and Movie Table
+ * Also Many to One mapping Between Director and Movie Table
+ */
 @Entity
 @Data
 @Table(name="movie")

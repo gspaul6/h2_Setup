@@ -8,6 +8,10 @@ import org.springframework.stereotype.Repository;
 
 import com.example.filmSearch.h2_setup.model.Director;
 
+/**
+ *  @author Gurpratap Singh Paul
+ * This is the Director Repository which used to make individual queries for Director Table
+ */
 @Repository
 public interface DirectorRepository extends CrudRepository<Director,Integer>{
 

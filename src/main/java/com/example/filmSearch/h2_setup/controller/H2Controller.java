@@ -18,7 +18,13 @@ import com.example.filmSearch.h2_setup.serviceImplementation.DirectorServiceImpl
 
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
-
+/**
+ *  @author Gurpratap Singh Paul
+ * This is the controller with the end points. 
+ * we have used an Rest Api to make calls, Given an endpoint with requesting a parameter
+ * it returns for each an DTO object hence cutting direct relation to the client
+ * 
+ */
 @RestController
 //Ici cette classe va répondre aux requêtes `/exemples`
 @RequestMapping("/film")
@@ -34,15 +40,51 @@ public class H2Controller {
 	@Autowired
 	private ActorServiceImplementation actorServiceImplementation;
 	
-	@GetMapping
+	// /film/directorName?directorName=xxx
+	/**
+	*
+	* @author Gurpratap Singh Paul
+	* @param directorName
+	* @return List<DtoName>
+	* @since 
+	* @version 
+	* @exception 
+	*/
+	@GetMapping("/directorName")	
 	public ResponseEntity<List<DtoName>> getMovieFromDirectorName(@RequestParam("directorName") String directorName) {
 		return ResponseEntity.status(HttpStatus.OK).body(this.directorServiceImplementation.getMovie(directorName));
 	}
 
 	// /film/actorName?actorName=xxx
-		@GetMapping("/actorName")
+	//http://localhost:8080/film/actorName?actorName=Mark Hamil
+	/**
+	*
+	* @author Gurpratap Singh Paul
+	* @param actorName
+	* @return List<DtoName>
+	* @since 
+	* @version 
+	* @exception 
+	*/
+	@GetMapping("/actorName")
 	public ResponseEntity<List<DtoName>> getMovieFromActorName(@RequestParam("actorName") String actorName) {
 		return ResponseEntity.status(HttpStatus.OK).body(this.actorServiceImplementation.getMovie(actorName));
 	}
 	
+	// /film/filmName?actorName=xxx
+	//http://localhost:8080/film/filmName?filmName=Indiana Jones - Les aventuriers de l'arche perdue
+	/**
+	*
+	* @author Gurpratap Singh Paul
+	* @param filmName
+	* @return List<DtoName>
+	* @since 
+	* @version 
+	* @exception 
+	*/
+	@GetMapping("/filmName")		
+	public ResponseEntity<List<DtoName>> getActorFromMovieName(@RequestParam("filmName") String filmName) {
+		return ResponseEntity.status(HttpStatus.OK).body(this.actorServiceImplementation.getActor(filmName));
+	}	
+		
 }

@@ -17,7 +17,11 @@ import javax.persistence.Table;
 
 
 import lombok.Data;
-
+/**
+ *  @author Gurpratap Singh Paul
+ * This is the Entity class Director which maps Director Table
+ * Here we have used One to Many Mapping Between Director and Movie Table
+ */
 @Entity
 @Data
 @Table(name="director")

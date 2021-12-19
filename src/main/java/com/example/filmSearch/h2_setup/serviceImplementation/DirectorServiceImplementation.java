@@ -18,7 +18,12 @@ import com.example.filmSearch.h2_setup.utils.DtoInterface;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-
+/**
+ * @author Gurpratap Singh Paul
+ * This is the Director service which implements the Interface Film Service
+ * Having one main function * 
+ * and the other Returns a Dto object, Given a Actor
+ */
 @RequiredArgsConstructor
 @Service
 @Transactional
@@ -40,6 +45,16 @@ public class DirectorServiceImplementation implements FilmService{
 	public void setDirectorRepository(DirectorRepository directorRepository) {
 		this.directorRepository = directorRepository;
 	}
+	
+	/**
+	* 
+	* @author Gurpratap Singh Paul
+	* @param name
+	* @return List<DtoName>
+	* @since 
+	* @version 
+	* Here we used a stream from Java 8 to map every object of movie to a Dto Object
+	*/
 	@Override
 	public List<DtoName> getMovie(String name) {
 		int id_name = directorRepository.getId_Director(name);
